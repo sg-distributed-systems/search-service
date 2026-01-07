@@ -7,5 +7,9 @@ def index_document(doc_id: str) -> None:
     logger.info("document_indexed", doc_id=doc_id)
 
 
-if __name__ == "__main__":
+def main() -> None:
     index_document("doc-001")
+
+
+if __name__ == "__main__":
+    main()
