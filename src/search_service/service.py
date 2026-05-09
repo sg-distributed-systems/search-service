@@ -12,7 +12,7 @@ from core_logger import get_logger
 from .errors import ValidationError
 from .schemas import SearchResult
 
-logger = get_logger("search-service")
+logger = get_logger("search-service", tier="infrastructure")
 
 MOCK_RESULTS = [
     {"id": "prod-001", "title": "Wireless Headphones", "score": 0.95},
