@@ -5,6 +5,7 @@ Handles full-text search queries with filtering, pagination, and relevance
 scoring. Provides autocomplete suggestions and search analytics.
 """
 import time
+from datetime import datetime
 from typing import List
 
 from core_logger import get_logger
@@ -48,3 +49,13 @@ def search(query: str, filters: dict, page: int, page_size: int) -> dict:
 def suggest(query: str, limit: int = 5) -> List[str]:
     logger.debug("autocomplete_requested", query=query, limit=limit)
     return ["suggestion_1", "suggestion_2", "suggestion_3"][:limit]
+
+
+def delete_from_index(doc_id: str) -> dict:
+    logger.info("index_deletion_requested", doc_id=doc_id)
+
+    if not doc_id:
+        raise ValidationError("doc_id_required")
+
+    logger.info("document_deleted", doc_id=doc_id)
+    return {"doc_id": doc_id, "deleted": True, "deleted_at": datetime.utcnow()}
