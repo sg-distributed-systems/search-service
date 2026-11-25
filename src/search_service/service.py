@@ -8,12 +8,12 @@ import time
 from datetime import datetime
 from typing import List
 
-from core_logger import get_logger
+from core_logger import Tier, get_logger
 
 from .errors import ValidationError
 from .schemas import SearchResult
 
-logger = get_logger("search-service")
+logger = get_logger("search-service", tier=Tier.BUSINESS)
 
 MOCK_RESULTS = [
     {"id": "prod-001", "title": "Wireless Headphones", "score": 0.95},
